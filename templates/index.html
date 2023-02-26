@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Party Time</title>
+</head>
+<body>
+	<img src="{{ url_for('static', filename='party_time_logo.png') }}" alt="Party Time Logo">
+	<h1>Search for a Vodka Brand</h1>
+	<form method="POST" action="{{ url_for('search') }}">
+		<label for="brand_name">Brand Name:</label>
+		<input type="text" name="brand_name" id="brand_name">
+		<input type="submit" value="Search">
+	</form>
+
+	{% if brand_details %}
+		<h2>{{ brand_details.brand }}</h2>
+		<p>Category: {{ brand_details.category }}</p>
+		<p>Self: {{ brand_details.self }}</p>
+		<p>Location: {{ brand_details.location }}</p>
+	{% endif %}
+</body>
+</html>
